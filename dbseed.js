@@ -1,10 +1,12 @@
-const mysql = require('mysql');
+import  mysql from 'mysql';
+
 const con = mysql.createConnection({
     host: "houserentdbe.c7om482wqwx6.ap-southeast-2.rds.amazonaws.com",
     user: "admin",
     password: "1uwQ7nDLgU2vTbYK1vOG"
 });
 
+// connect to the MySQL database
 con.connect(function(err) {
     if (err) throw err;
 
@@ -14,5 +16,7 @@ con.connect(function(err) {
     'email varchar(255), age int, PRIMARY KEY(id));', function(error, result, fields) {
         console.log(result);
     });
-    con.end();
 });
+
+
+export default con;
